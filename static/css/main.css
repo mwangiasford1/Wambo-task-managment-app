@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(217, 150, 26);
+    text-align: center;
+    background: linear-gradient(to right, #26713a, #981beb);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.delete-btn, .update-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+.update-btn {
+    background-color: blue;
+    color: white;
+}

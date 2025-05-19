@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    
+        
+    </div>
+   <h1>Task Master</h1>
+
+ 
+
+   {% with messages = get_flashed_messages() %}
+       {% if messages %}
+           <ul class="messages">
+               {% for message in messages %}
+                   <li>{{ message }}</li>
+               {% endfor %}
+           </ul>
+       {% endif %}
+   {% endwith %}
+
+   <table>
+    <tr>
+       <th>TASK</th>
+       <th>ADDED</th>
+       <th>STATUS</th>
+       <th>ACTION</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.date_created.date() }}</td>
+        <td>{{ "✔ Completed" if task.completed else "⏳ Pending" }}</td>
+        <td>
+            <form action="/delete/{{ task.id }}" method="POST">
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+            <form action="/update/{{ task.id }}" method="POST">
+                <button type="submit" class="update-btn">Update</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+   </table>
+
+   <form action="/" method="POST">
+       <input type="text" name="task" placeholder="Enter your task here">
+       <input type="submit" value="Add Task">
+   </form>
+</div>
+{% endblock %}
